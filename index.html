@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let values = "";
+      const onNumberClick = (e) => {
+        if (e === "Q") {
+          console.log("I pressed Q");
+          return;
+        }
+        values += e;
+        document.querySelector("#calc-values").textContent = values;
+      };
+
+      const onEqualClick = () => {
+        const res = eval(values);
+        document.querySelector("#calc-result").textContent = res;
+      };
+
+      const onResetClick = () => {
+        values = "";
+        document.querySelector("#calc-result").textContent = "";
+        document.querySelector("#calc-values").textContent = "";
+      };
+    </script>
+    <div class="container">
+      <div class="screen">
+        <p id="calc-values"></p>
+        <p id="calc-result"></p>
+      </div>
+      <div class="keys">
+        <div class="top-container">
+          <button onclick="onResetClick()" class="generic reset">Reset</button>
+          <button onclick="onNumberClick('/')" class="generic">/</button>
+          <button onclick="onNumberClick('-')" class="generic">-</button>
+        </div>
+        <div class="numbers-container">
+          <button onclick="onNumberClick('7')" class="generic">7</button>
+          <button onclick="onNumberClick('8')" class="generic">8</button>
+          <button onclick="onNumberClick('9')" class="generic">9</button>
+          <button onclick="onNumberClick('4')" class="generic">4</button>
+          <button onclick="onNumberClick('5')" class="generic">5</button>
+          <button onclick="onNumberClick('6')" class="generic">6</button>
+          <button onclick="onNumberClick('1')" class="generic">1</button>
+          <button onclick="onNumberClick('2')" class="generic">2</button>
+          <button onclick="onNumberClick('3')" class="generic">3</button>
+          <button onclick="onNumberClick('Q')" class="generic">Q</button>
+          <button onclick="onNumberClick('0')" class="generic">0</button>
+          <button onclick="onNumberClick('.')" class="generic">.</button>
+        </div>
+        <div class="right">
+          <button onclick="onNumberClick('+')" class="generic bg-green">
+            +
+          </button>
+          <button onclick="onNumberClick('*')" class="generic bg-green">
+            *
+          </button>
+          <button onclick="onEqualClick()" class="generic equal">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
